@@ -1,0 +1,5 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1000" fill="#00204D"/>
+  <path d="M300 400 L500 250 L700 400 L700 600 L500 750 L300 600 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="20"/>
+  <text x="500" y="900" text-anchor="middle" font-family="serif" font-size="200" fill="#FFFFFF">GCMS</text>
+</svg>

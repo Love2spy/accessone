@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  company   String
+  password  String
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subcontractor {
+  id              String    @id @default(uuid())
+  name            String
+  location        String
+  contact         String
+  email           String
+  specialties     String    // Stored as JSON array
+  rating          Float     @default(0)
+  status          String    // new, contacted, waiting_response, quoted, approved, rejected
+  statusUpdatedAt DateTime
+  notes           String?
+  pastPerformance String    // Stored as JSON array
+  quotes          String?   // Stored as JSON array
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Proposal {
+  id            String   @id @default(uuid())
+  title         String
+  opportunityId String
+  dueDate       DateTime
+  status        String   // draft, in_review, submitted, won, lost
+  progress      Int      @default(0)
+  content       String?  // Stored as JSON
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Template {
+  id       String @id @default(uuid())
+  name     String
+  category String // past_performance, technical, pricing, quote_request
+  content  String
+  tags     String // Stored as JSON array
+}
